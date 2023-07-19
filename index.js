@@ -1,39 +1,32 @@
-var http = require("http");
-var fs = require("fs");
+const express = require("express");
+const app = express();
+app.set("view engine", "ejs");
+app.use(express.static('public'));
+app.use(express.static('node_modules'));
 
-var server = http.createServer((req,res) => {
+const data = [
+    { id: 1, name: "Kalem", price: 15,imgUrl:"Kalem.jpeg" },
+    { id: 2, name: "Silgi", price: 5, imgUrl:"Silgi.jpeg"},
+    { id: 3, name: "Defter", price: 25,imgUrl:"Defter.jpeg"}];
 
-if (req.url == "/") {
-    fs.readFile("index.html", (err,html) => {
-
-        res.write(html);
-        res.end();
-
-    });
-}
-else if (req.url == "/urunler") {
-    fs.readFile("urunler.html", (err,html) => {
-
-        res.write(html);
-        res.end();
-
-    });
-}
-else {
-fs.readFile("404.html",(err,html) => {
-
-    res.write(html);   
-    res.end();
-
-});}
-
+app.use("/products/:id", function (req, res) {
+    const urun = data.find(u => u.id == req.params.id)
+    
+    res.render("product-details",urun);
 });
 
-server.listen(8080, () => {
+app.use("/products", function (req, res) {
+    res.render("products", {
+        list: data
 
-    console.log("server devrede ");
-    console.log(8+2);
-    console.log(5);
-    console.log(5);
+    });
+});
 
+app.use("/", function (req, res) {
+    res.render("index");
+});
+
+app.listen(8080, () => {
+
+    console.log("8080 dinleniyor");
 });
