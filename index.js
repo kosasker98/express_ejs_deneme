@@ -34,4 +34,6 @@ server.listen(8080, () => {
     console.log("server devrede ");
     console.log(8+2);
     console.log(5);
+    console.log(5);
+
 });
