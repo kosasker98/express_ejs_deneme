@@ -8,13 +8,44 @@
     <title>Document</title>
 </head>
 
-<body class="bg-warning">
+<body>
+    <%- include("partials/nav") %>
 
-    <h1>Urun Detay Sayfasi</h1>
-    <h2> İsim <%= name %></h2>
-    <img src="/images/<%= imgUrl %>" alt="Kalem" width="200">
-    <h2> Fiyat <%= price %> TL</h2>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <!-- <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/images/<%= imgUrl %>" alt="<%= name %>" class="img-fluid">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= name %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= price %> TL
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, dolores alias illo
+                                    quasi laboriosam soluta perspiciatis placeat ut ab. Sit labore ipsa illo numquam
+                                    odio voluptate. Ex rem eos explicabo.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, dolores alias illo
+                                    quasi laboriosam soluta perspiciatis placeat ut ab. Sit labore ipsa illo numquam
+                                    odio voluptate. Ex rem eos explicabo.</p>
+                            </div>
+                        </div>
+                    </div>
 
+                </div> -->
+
+<%- include("partials/product") %>
+
+            </div>
+
+        </div>
+
+    </div>
 </body>
 
 </html>
